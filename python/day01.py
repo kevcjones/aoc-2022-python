@@ -21,22 +21,25 @@ def convert_raw_to_lists_of_ints(lines_with_gaps):
     int_lists = [list(map(int, str_lists.split("\n"))) for str_lists in list_lists]
     return int_lists
 
+# Solution
 
-def day01a(calories_lists_raw):
+def day01_part1(calories_lists_raw):
     calories_lists = convert_raw_to_lists_of_ints(calories_lists_raw)
     highest_count = max([sum(calory_list) for calory_list in calories_lists])
     return highest_count
 
-def day01b(calories_lists_raw):
+def day01_part2(calories_lists_raw):
     calories_lists = convert_raw_to_lists_of_ints(calories_lists_raw)
     counts = [sum(calory_list) for calory_list in calories_lists]
     return sum(sorted(counts, reverse=True)[:3])
 
-def test_01a_ex0(): 
-    assert day01a(elf_calories) == 24000
+# Tests
 
-def test_01b_ex0(): 
-    assert day01b(elf_calories) == 45000
+def test_day01_part1_example1(): 
+    assert day01_part1(elf_calories) == 24000
 
-def test_01a(day01_raw): assert day01a(day01_raw) == 67016
-def test_01b(day01_raw): assert day01b(day01_raw) == 200116
+def test_day01_part2_example1(): 
+    assert day01_part2(elf_calories) == 45000
+
+def test_day01_part1(day01_raw): assert day01_part1(day01_raw) == 67016
+def test_day01_part2(day01_raw): assert day01_part2(day01_raw) == 200116
