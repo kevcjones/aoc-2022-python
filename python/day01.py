@@ -25,13 +25,13 @@ def convert_raw_to_lists_of_ints(lines_with_gaps):
 
 def day01_part1(calories_lists_raw):
     calories_lists = convert_raw_to_lists_of_ints(calories_lists_raw)
-    highest_count = max([sum(calory_list) for calory_list in calories_lists])
-    return highest_count
+    highest_sum = max([sum(calory_list) for calory_list in calories_lists])
+    return highest_sum
 
 def day01_part2(calories_lists_raw):
     calories_lists = convert_raw_to_lists_of_ints(calories_lists_raw)
-    counts = [sum(calory_list) for calory_list in calories_lists]
-    return sum(sorted(counts, reverse=True)[:3])
+    calories_summed = [sum(calory_list) for calory_list in calories_lists]
+    return sum(sorted(calories_summed, reverse=True)[:3])
 
 # Tests
 
