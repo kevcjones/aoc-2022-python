@@ -1,7 +1,7 @@
 #!/bin/bash
-sed -n '/^def \(test_\([0-9][0-9]\)[ab]\)(\(.*\)):.*/ {
+sed -n '/^def \(test_day\([0-9][0-9]\)_part[1-2]\)(\(.*\)):.*/ {
     s//from python.day\2 import \1 as _\1\ndef \1_(\3, benchmark): benchmark(lambda: _\1(\3))/ ;
     p
 }' python/day??.py > benchmark.py
 ${PY:-python} -m pytest -v benchmark.py
-rm benchmark.py
+# rm benchmark.py
