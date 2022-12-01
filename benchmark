@@ -4,4 +4,4 @@ sed -n '/^def \(test_day\([0-9][0-9]\)_part[1-2]\)(\(.*\)):.*/ {
     p
 }' python/day??.py > benchmark.py
 ${PY:-python} -m pytest -v benchmark.py
-# rm benchmark.py
+rm benchmark.py
