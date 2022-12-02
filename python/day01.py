@@ -1,5 +1,5 @@
 import pytest
-from python.utils.examples import read_raw_example_for_day
+from utils.examples import read_raw_example_for_day
 
 
 def convert_raw_to_lists_of_ints(lines_with_gaps):
