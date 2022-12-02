@@ -2,30 +2,30 @@ import pytest
 from utils.examples import read_raw_example_for_day
 
 decryption_key = {
-    # X LOSE
+    # X P2 LOSES
     "A X": "A Z", 
     "B X": "B X",
     "C X": "C Y", 
-    # Y DRAW
+    # Y P2 DRAWS
     "A Y": "A X",   
     "B Y": "B Y", 
     "C Y": "C Z",
-    # Z WIN 
+    # Z P2 WINS
     "A Z": "A Y", 
     "B Z": "B Z",    
     "C Z": "C X", 
 }
 
 score_book = {
-    "A Y": 8, # ROCK PAPER WIN 2  
-    "B Z": 9, # PAPER SCISSORS WIN 3   
-    "C X": 7, # SCISSORS ROCK LOSS 1
-    "A X": 4, # ROCK ROCK DRAW 1
-    "B Y": 5, # PAPER PAPER DRAW 2
-    "C Z": 6, # SCISSORS SCISSORS DRAW 3
-    "A Z": 3, # ROCK SCISSORS LOSE 3
-    "B X": 1, # PAPER ROCK LOSE 1
-    "C Y": 2 # SCISSORS PAPER LOSE 2
+    "A Y": 8, # ROCK PAPER P2 WIN 6+2  
+    "B Z": 9, # PAPER SCISSORS P2 WIN 6+3   
+    "C X": 7, # SCISSORS ROCK P2 WIN 6+1
+    "A X": 4, # ROCK ROCK P2 DRAW 3+1
+    "B Y": 5, # PAPER PAPER P2 DRAW 3+2
+    "C Z": 6, # SCISSORS SCISSORS P2 DRAW 3+3
+    "A Z": 3, # ROCK SCISSORS P2 LOSE 0+3
+    "B X": 1, # PAPER ROCK P2 LOSE 0+1
+    "C Y": 2 # SCISSORS PAPER P2 LOSE 0+2
 }
 
 
