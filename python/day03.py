@@ -29,13 +29,13 @@ def convert_raw_to_sacks(sacks_raw):
     sacks = [line for line in sacks_raw.split("\n")]
     return sacks
 
-def splitStringInHalf(string):
+def split_string_in_half(string):
     halfSize = int(len(string)/2)
     half1,half2 = string[:halfSize], string[halfSize:]
     return half1, half2
 
 def calculate_part1(score, sack):
-    half1,half2 = splitStringInHalf(sack)
+    half1,half2 = split_string_in_half(sack)
     common = find_common_strings_in_list([half1,half2])
     score = score + score_from_charcode(list(common)[0])
     return score
