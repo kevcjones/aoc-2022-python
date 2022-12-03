@@ -47,7 +47,8 @@ def day03_part1(sacks_raw):
 def test_day03_part1_example(day03_example_raw): 
     assert day03_part1(day03_example_raw) == 157
 
-def test_day03_part1(day03_raw): assert day03_part1(day03_raw) == 7785
+def test_day03_part1(day03_raw): 
+    assert day03_part1(day03_raw) == 7785
 
 
 # Part 2
@@ -70,6 +71,7 @@ def day03_part2(sacks_raw):
 def test_day03_part2_example(day03_example_raw): 
     assert day03_part2(day03_example_raw) == 70
 
-def test_day03_part2(day03_raw): assert day03_part2(day03_raw) == 2633
+def test_day03_part2(day03_raw): 
+    assert day03_part2(day03_raw) == 2633
 
 
