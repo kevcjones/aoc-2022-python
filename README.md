@@ -30,9 +30,3 @@ Run benchmarking using
 ./benchmark
 ```
 
-
-# Days
-## Day 01
-
-Elves go looking for stars with bags of snacks. Snacks have calories. Work out the most calory laiden elf, then after work out the sum of the top 3.  Went with comprehensions, quite like the functional feel.. not mad about readability. Hey ho..
-
