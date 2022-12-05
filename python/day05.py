@@ -1,37 +1,39 @@
 import pytest
-from functools import reduce
 from utils.examples import read_raw_example_for_day
-import re
-
 
 @pytest.fixture
 def day05_example_raw():
     return read_raw_example_for_day(5)
 
-def parse_move_instructions(moves_raw):
-    moves = [list(map(int, x.split()[1::2])) for x in moves_raw.split('\n') if x]
-    return moves
 
-def transpose_to_stack_lists(crates_rows):
-    stacks = ["".join([y[x] for y in crates_rows]).strip() for x in range(len(crates_rows[0]))]
-    return stacks
+def get_crates_and_moves(raw):
+    crates_raw,moves_raw = raw.split('\n\n')
+    return crates_raw,moves_raw
 
 def get_rows_of_crate_letters(crates_raw):
     crates_rows = [crate_letter[1::4] for crate_letter in crates_raw.split('\n')[:-1]]
     return crates_rows
 
-def get_crates_and_moves(raw):
-    crates_raw,moves_raw = raw.split('\n\n')
-    return crates_raw,moves_raw
+def transpose_to_stack_lists(crates_rows):
+    stacks = ["".join([stack[crate] for stack in crates_rows]).strip() for crate in range(len(crates_rows[0]))]
+    return stacks
+
+def parse_move_instructions(moves_raw):
+    moves = [list(map(int, move.split()[1::2])) for move in moves_raw.split('\n') if move]
+    return moves
 
 def compute_it(raw, order=-1):
     crates_raw, moves_raw = get_crates_and_moves(raw)
     crates_rows = get_rows_of_crate_letters(crates_raw)
     stacks = transpose_to_stack_lists(crates_rows)
     moves = parse_move_instructions(moves_raw)
-    for count,from_stack,to_stack in moves:
-        stacks[to_stack - 1] = stacks[from_stack - 1][:count][::order] + stacks[to_stack - 1]
-        stacks[from_stack - 1] = stacks[from_stack - 1][count:]
+    for mv in moves:
+        count = mv[0]
+        from_stack = mv[1] - 1
+        to_stack = mv[2] - 1
+        # slice and splice
+        stacks[to_stack] = stacks[from_stack][:count][::order] + stacks[to_stack]
+        stacks[from_stack] = stacks[from_stack][count:]
     return "".join(stack[0] for stack in stacks)
 
 # Part 1
