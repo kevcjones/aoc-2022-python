@@ -22,7 +22,7 @@ def parse_move_instructions(moves_raw):
     moves = [list(map(int, move.split()[1::2])) for move in moves_raw.split('\n') if move]
     return moves
 
-def compute_it(raw, order=-1):
+def process_raw(raw, order=-1):
     crates_raw, moves_raw = get_crates_and_moves(raw)
     crates_rows = get_rows_of_crate_letters(crates_raw)
     stacks = transpose_to_stack_lists(crates_rows)
@@ -39,7 +39,7 @@ def compute_it(raw, order=-1):
 # Part 1
 
 def day05_part1(raw):
-    return compute_it(raw)
+    return process_raw(raw, order=-1)
 
 def test_day05_part1_example(day05_example_raw): 
     assert day05_part1(day05_example_raw) == 'CMZ'
@@ -48,7 +48,7 @@ def test_day05_part1(day05_raw):
     assert day05_part1(day05_raw) == 'WSFTMRHPP'
 
 def day05_part2(raw):
-    return compute_it(raw, 1)
+    return process_raw(raw, order=1)
 
 def test_day05_part2_example(day05_example_raw): 
     assert day05_part2(day05_example_raw) == 'MCD'
