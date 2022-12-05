@@ -69,6 +69,6 @@ def test_day04_part2_example(day04_example_raw):
     assert day04_part2(day04_example_raw) == 5
 
 def test_day04_part2(day04_raw): 
-    assert day04_part2(day04_raw) == 2633
+    assert day04_part2(day04_raw) == 874
 
 
