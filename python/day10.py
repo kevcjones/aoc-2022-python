@@ -37,6 +37,7 @@ def day10_part2(raw):
 
 def test_day10_part1_example(day10_example_raw): 
     assert day10_part1(day10_example_raw) == 13140
+    
 def test_day10_part2_example(day10_example_raw): 
     assert day10_part2(day10_example_raw) == [
         '██..██..██..██..██..██..██..██..██..██..',
